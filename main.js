@@ -9,7 +9,7 @@ searchButton.addEventListener("click", async function() {
         console.log(data);
 
             
-    if (inputField.value === "batman") {
+    if (inputField.value === response.Search) {
         getData(inputField.value);
         updateData(data)
     } else {
