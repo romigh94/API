@@ -13,12 +13,21 @@ searchButton.addEventListener("click", async function() {
     }
 });
 
+
+//Fetch och error hantering
 function getData() {
     return fetch(url)
     .then(response => {
-        return response.json();
+        if (!response.ok) {
+            throw new Error("No success")
+        }
+    return response.json();
+
     })
     .then(response => {
+        if (response.Response === "False") {
+        throw new Error(response.Error);
+        }
         return response.Search;
     })
 }
