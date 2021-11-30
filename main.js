@@ -5,8 +5,8 @@ const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", async function() {
     try {
         const inputField = document.getElementById("input-field");
-        const data = await getMovies(inputField.value);
-        objectFunction(data);
+        const data = await getData(inputField.value);
+        updateData(data);
     } catch(error) {
         console.log(error);
         alert(error);
