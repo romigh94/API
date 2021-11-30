@@ -1,16 +1,14 @@
-async function fetchAPI(e) {
+const url = "http://www.omdbapi.com/?apikey=ffdc3cc5&s=batman";
+
+
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", async function() {
     try {
-        let response = await fetch('http://www.omdbapi.com/?apikey=ffdc3cc5&s=batman');
-        if(!response.ok) {
-            throw new Error('Some network problems')
-        }
-
-        let data = await response.json()
-        let parameter = e.target.id;
-
-        contentDiv.innerHTML = generatePageContentHTML(parameter, data);
+        const inputField = document.getElementById("input-field");
+        const data = await getMovies(inputField.value);
+        objectFunction(data);
     } catch(error) {
-
+        console.log(error);
+        alert(error);
     }
-
-}
+});
