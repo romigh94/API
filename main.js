@@ -23,12 +23,9 @@ searchButton.addEventListener("click", async function() {
 
 
 //Fetch och error hantering
-function getData() {
+function getData(inputField) {
     return fetch(url)
     .then(response => {
-        if (!response.ok) {
-            throw new Error("No success")
-        }
     return response.json();
 
     })
@@ -40,7 +37,7 @@ function getData() {
     })
 }
 
-function updateData(objectEl, inputField) {
+function updateData(objectEl) {
     let cards = "";
     objectEl.forEach(object => 
         (cards += showData(object)));
