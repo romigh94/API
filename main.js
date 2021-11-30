@@ -8,14 +8,12 @@ searchButton.addEventListener("click", async function() {
         const data = await getData(inputField.value);
         console.log(data);
 
-            
-    if (inputField.value === response.Search) {
-        getData(inputField.value);
-        updateData(data)
-    } else {
-        alert("movie not found")
-    }
-
+        if (inputField.value === "batman") {
+            getData(inputField.value);
+            updateData(data)
+        } else {
+            alert("movie not found")
+        }
 
     } catch {
         console.log(error);
@@ -42,7 +40,7 @@ function getData() {
     })
 }
 
-function updateData(objectEl) {
+function updateData(objectEl, inputField) {
     let cards = "";
     objectEl.forEach(object => 
         (cards += showData(object)));
