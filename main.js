@@ -1,10 +1,10 @@
 const url = "http://www.omdbapi.com/?apikey=ffdc3cc5&s=batman";
+const inputField = document.getElementById("input-field");
 
 
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", async function() {
     try {
-        const inputField = document.getElementById("input-field");
         const data = await getData(inputField.value);
         console.log(data);
 
@@ -23,17 +23,14 @@ searchButton.addEventListener("click", async function() {
 
 
 //Fetch och error hantering
-function getData(inputField) {
+function getData() {
     return fetch(url)
     .then(response => {
     return response.json();
 
     })
     .then(response => {
-        if (response.Response === "False") {
-        throw new Error(response.Error);
-        }
-        return response.Search;
+     return response.Search;
     })
 }
 
@@ -47,15 +44,11 @@ function updateData(objectEl) {
 
 }
 
-
+//innerHTML
 function showData(object) {
 
     return    `
-                <div class="img-container">
                <img src="${object.Poster}" style="width:80px; float:left;">
-    
-               </div>
-
     
                <h2 style="font-family:arial;">Title: ${object.Title}</h2>
                <h3 style="font-family:arial;">Year: ${object.Year}</h3>
