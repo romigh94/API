@@ -12,3 +12,15 @@ searchButton.addEventListener("click", async function() {
         alert(error);
     }
 });
+
+function getData() {
+    return fetch(url)
+    .then(response => {
+        return response.json();
+    })
+    .then(response => {
+        return response.Search;
+    })
+}
+
+
