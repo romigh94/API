@@ -7,6 +7,9 @@ searchButton.addEventListener("click", async function() {
         const inputField = document.getElementById("input-field");
         const data = await getData(inputField.value);
         updateData(data);
+        console.log(data);
+
+        
     } catch(error) {
         console.log(error);
         alert(error);
