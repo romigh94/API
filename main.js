@@ -54,10 +54,15 @@ function updateData(objectEl) {
 
 function showData(object) {
     return    `
-               <img src=<"${object.Poster}">
-                  <h3>${object.Title}</h3>
-                  <h4>${object.Year}</h4>
-                  <h4>${object.Type}</h4>
+                <div class="img-container">
+               <img src="${object.Poster}">
+               </div>
+
+               <div class="container">
+                  <h2>Title: ${object.Title}</h2>
+                  <h3>Year: ${object.Year}</h3>
+                  <h3>Type: ${object.Type}</h3>
+                </div>
                `
               
           }
