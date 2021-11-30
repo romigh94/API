@@ -6,11 +6,17 @@ searchButton.addEventListener("click", async function() {
     try {
         const inputField = document.getElementById("input-field");
         const data = await getData(inputField.value);
-        updateData(data);
         console.log(data);
 
-        
-    } catch(error) {
+        if (inputField.value === "batman") {
+            getData(inputField.value);
+            updateData(data)
+        } else {
+            throw new Error("Not found") 
+        }
+
+
+    } catch {
         console.log(error);
         alert(error);
     }
@@ -48,7 +54,7 @@ function updateData(objectEl) {
 
 function showData(object) {
     return    `
-               <img src="${object.Poster}">
+               <img src=<"${object.Poster}">
                   <h3>${object.Title}</h3>
                   <h4>${object.Year}</h4>
                   <h4>${object.Type}</h4>
