@@ -8,12 +8,13 @@ searchButton.addEventListener("click", async function() {
         const data = await getData(inputField.value);
         console.log(data);
 
-        if (inputField.value === "batman") {
-            getData(inputField.value);
-            updateData(data)
-        } else {
-            throw new Error("Not found") 
-        }
+            
+    if (inputField.value === "batman") {
+        getData(inputField.value);
+        updateData(data)
+    } else {
+        alert("movie not found")
+    }
 
 
     } catch {
@@ -53,16 +54,18 @@ function updateData(objectEl) {
 
 
 function showData(object) {
+
     return    `
                 <div class="img-container">
-               <img src="${object.Poster}">
+               <img src="${object.Poster}" style="width:80px; float:left;">
+    
                </div>
 
-               <div class="container">
-                  <h2>Title: ${object.Title}</h2>
-                  <h3>Year: ${object.Year}</h3>
-                  <h3>Type: ${object.Type}</h3>
-                </div>
+    
+               <h2 style="font-family:arial;">Title: ${object.Title}</h2>
+               <h3 style="font-family:arial;">Year: ${object.Year}</h3>
+               <h3 style="font-family:arial;">Type: ${object.Type}</h3>
                `
               
+    
           }
