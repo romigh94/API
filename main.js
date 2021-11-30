@@ -32,4 +32,16 @@ function getData() {
     })
 }
 
+function updateData(objectEl) {
+    let cards = "";
+    objectEl.forEach(object => 
+        (cards += showData(object)));
+    
+    const objectContainer = document.querySelector(".object-container");
+    objectContainer.innerHTML = cards;
+
+}
+
+
+
 
